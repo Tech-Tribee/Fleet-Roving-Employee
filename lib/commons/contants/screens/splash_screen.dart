@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:fleet_roving_employee/commons/colors.dart';
-import 'package:fleet_roving_employee/features/home/screens/home_screen.dart';
+import 'package:fleet_roving_employee/features/authentication/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+          builder: (context) => const LoginScreen(),
         ),
       );
     });
