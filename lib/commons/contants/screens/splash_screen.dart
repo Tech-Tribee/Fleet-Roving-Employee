@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:fleet_roving_employee/commons/colors.dart';
+import 'package:fleet_roving_employee/commons/contants/widgets/utils.dart';
 import 'package:fleet_roving_employee/features/authentication/screens/login_screen.dart';
+import 'package:fleet_roving_employee/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,6 +15,8 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
+  bool _isSignIn = false;
+
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 2),
@@ -42,15 +46,28 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
+    getUserLoggedInStatus();
     _controller.forward();
     Timer(const Duration(milliseconds: 3000), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const LoginScreen(),
+          builder: (context) =>
+              _isSignIn ? const HomeScreen() : const LoginScreen(),
         ),
       );
     });
+  }
+
+  getUserLoggedInStatus() async {
+    await SharedPref.getUserLoggedInStatus().then((value) => {
+          if (value != null)
+            {
+              setState(() {
+                _isSignIn = value;
+              }),
+            }
+        });
   }
 
   @override
