@@ -1,4 +1,7 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:fleet_roving_employee/commons/contants/widgets/reusable_button.dart';
+import 'package:fleet_roving_employee/commons/contants/widgets/utils.dart';
 import 'package:fleet_roving_employee/features/home/screens/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
@@ -12,6 +15,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isNightMode = true;
+  String? userName;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserName();
+  }
+
+  _loadUserName() async {
+    userName = await SharedPref.getUserName();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +117,9 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 alignment: Alignment.center,
                 color: Colors.transparent.withOpacity(0.2),
-                child: const DrawerWidget(),
+                child: DrawerWidget(
+                  userName: userName ?? "Guest",
+                ),
               ),
             ),
           ),
@@ -116,9 +133,9 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "HEY JHON,",
-                  style: TextStyle(
+                Text(
+                  "HEY ${userName!.toUpperCase()},",
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -129,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "WELCOME BACK",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 44,
+                    fontSize: 40,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -147,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "GET STARTED WITH AN AMAZING commute.",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 35,
+                    fontSize: 32,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 1,
                   ),
