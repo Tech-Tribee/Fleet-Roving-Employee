@@ -1,21 +1,28 @@
+import 'package:fleet_roving_employee/features/authentication/controller/authcontroller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DrawerWidget extends StatefulWidget {
+class DrawerWidget extends ConsumerWidget {
   final String userName;
-  const DrawerWidget({super.key, required this.userName});
+
+  const DrawerWidget({
+    Key? key,
+    required this.userName,
+  }) : super(key: key);
 
   @override
-  State<DrawerWidget> createState() => _DrawerWidgetState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authController = ref.read(authControllerProvider);
 
-class _DrawerWidgetState extends State<DrawerWidget> {
-  @override
-  Widget build(BuildContext context) {
+    void logout() {
+      authController.logout(context);
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          widget.userName,
+          userName,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -101,6 +108,17 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
+          ),
+        ),
+        const SizedBox(height: 15),
+        InkWell(
+          onTap: logout,
+          child: const Text(
+            "Logout",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+            ),
           ),
         ),
       ],

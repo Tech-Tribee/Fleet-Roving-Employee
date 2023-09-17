@@ -93,10 +93,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   hintText: "Password",
                 ),
                 const SizedBox(height: 30),
-                CustomButton(
-                  text: "Log in",
-                  onPressed: handlesubmit,
-                ),
+                CustomButton(text: "Log in", onPressed: handlesubmit),
                 const SizedBox(height: 20),
                 const Align(
                   alignment: Alignment.centerRight,
