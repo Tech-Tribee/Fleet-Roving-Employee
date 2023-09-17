@@ -23,4 +23,8 @@ class AuthController {
       password: password,
     );
   }
+
+  void logout(BuildContext context) {
+    authService.logout(context);
+  }
 }

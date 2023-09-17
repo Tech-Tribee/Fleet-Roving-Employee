@@ -1,6 +1,7 @@
 import 'package:fleet_roving_employee/commons/colors.dart';
 import 'package:fleet_roving_employee/commons/contants/widgets/error_handling.dart';
 import 'package:fleet_roving_employee/commons/contants/widgets/utils.dart';
+import 'package:fleet_roving_employee/features/authentication/screens/login_screen.dart';
 import 'package:fleet_roving_employee/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -57,5 +58,18 @@ class AuthService {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+  }
+
+  void logout(BuildContext context) async {
+    await SharedPref.saveUserLoggedInStatus(false);
+    await SharedPref.saveUserName('');
+    // ignore: use_build_context_synchronously
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        // ignore: prefer_const_constructors
+        builder: (context) => LoginScreen(),
+      ),
+    );
   }
 }

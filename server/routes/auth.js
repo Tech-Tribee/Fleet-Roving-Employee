@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 
 authRouter.post("/api/signup", async (req, res) => {
   try {
+    console.log(req.body);
     const { userName, password } = req.body;
 
     const hashedPassword = await bcryptjs.hash(password, 8);
