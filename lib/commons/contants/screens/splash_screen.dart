@@ -4,7 +4,6 @@ import 'package:fleet_roving_employee/commons/colors.dart';
 import 'package:fleet_roving_employee/commons/contants/widgets/utils.dart';
 import 'package:fleet_roving_employee/features/authentication/screens/login_screen.dart';
 import 'package:fleet_roving_employee/features/authentication/screens/mobile_otp_screen.dart';
-import 'package:fleet_roving_employee/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

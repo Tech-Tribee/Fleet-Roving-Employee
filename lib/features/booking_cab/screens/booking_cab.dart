@@ -1,8 +1,6 @@
 import 'package:fleet_roving_employee/commons/contants/widgets/reusable_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../../commons/contants/widgets/custom_button.dart';
-
 class BookCabScreen extends StatefulWidget {
   const BookCabScreen({Key? key}) : super(key: key);
 
@@ -36,12 +34,13 @@ class _BookCabScreenState extends State<BookCabScreen> {
           lastDate: DateTime(2101),
         )) ??
         DateTime.now();
-    if (picked != null && picked != selectedDate)
+    if (picked != selectedDate) {
       setState(() {
         selectedDate = picked;
         dateController.text = "${selectedDate!.toLocal()}"
             .split(' ')[0]; // Update the text field.
       });
+    }
   }
 
   Future<void> _selectDateEnd(BuildContext context) async {
@@ -52,12 +51,13 @@ class _BookCabScreenState extends State<BookCabScreen> {
           lastDate: DateTime(2101),
         )) ??
         DateTime.now();
-    if (picked != null && picked != selectedDate)
+    if (picked != selectedDate) {
       setState(() {
         selectedDate = picked;
         dateEndController.text = "${selectedDate!.toLocal()}"
             .split(' ')[0]; // Update the text field.
       });
+    }
   }
 
   Future<void> _selectTime(BuildContext context) async {
