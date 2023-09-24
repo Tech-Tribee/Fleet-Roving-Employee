@@ -2,6 +2,7 @@
 
 import 'package:fleet_roving_employee/commons/contants/widgets/reusable_button.dart';
 import 'package:fleet_roving_employee/commons/contants/widgets/utils.dart';
+import 'package:fleet_roving_employee/features/booking_cab/screens/booking_cab.dart';
 import 'package:fleet_roving_employee/features/home/screens/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
@@ -170,14 +171,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ReusableButtonConatiner(
                       text: "SCHEDULE A TRIP",
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BookCabScreen(),
+                        ),
+                      ),
                     ),
                     ReusableButtonConatiner(
                       text: "CURRENT STATUS",
+                      onTap: () {},
                     ),
                   ],
                 ),

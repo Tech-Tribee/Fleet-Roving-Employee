@@ -5,21 +5,24 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool hidden;
+  final Color color;
+  final Color textColor;
 
-  const CustomTextField({
-    Key? key,
-    required this.controller,
-    required this.hintText,
-    this.hidden = false,
-  }) : super(key: key);
+  const CustomTextField(
+      {Key? key,
+      required this.controller,
+      required this.hintText,
+      this.hidden = false,
+      this.color = GlobalVariable.textFildBackGroundColor,
+      this.textColor = Colors.white})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: hidden,
       controller: controller,
-      style:
-          const TextStyle(color: Colors.white), // Set the text color to white
+      style: TextStyle(color: textColor), // Set the text color to white
       decoration: InputDecoration(
         filled: true,
         label: Text(
@@ -29,7 +32,7 @@ class CustomTextField extends StatelessWidget {
             fontSize: 22,
           ),
         ),
-        fillColor: GlobalVariable.textFildBackGroundColor,
+        fillColor: color,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.circular(15.0),
