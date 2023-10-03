@@ -172,20 +172,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 40),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ReusableButtonConatiner(
-                      text: "SCHEDULE A TRIP",
+                      text: "BOOK A CAB",
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const BookCabScreen(),
                         ),
                       ),
-                    ),
-                    ReusableButtonConatiner(
-                      text: "CURRENT STATUS",
-                      onTap: () {},
                     ),
                   ],
                 ),

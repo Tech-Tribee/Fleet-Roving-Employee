@@ -1,4 +1,5 @@
 import 'package:fleet_roving_employee/commons/contants/widgets/reusable_button.dart';
+import 'package:fleet_roving_employee/features/booking_cab/screens/cab_coming.dart';
 import 'package:flutter/material.dart';
 
 class BookCabScreen extends StatefulWidget {
@@ -100,12 +101,11 @@ class _BookCabScreenState extends State<BookCabScreen> {
         fit: StackFit.expand,
         children: [
           const Center(
-            child: Text(
-              "Cab live location will be shown here",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20,
+            child: Image(
+              image: NetworkImage(
+                "https://raw.githubusercontent.com/MindorksOpenSource/ridesharing-uber-lyft-app/master/assets/nearby-cabs.png",
               ),
+              width: double.infinity,
             ),
           ),
           DraggableScrollableSheet(
@@ -265,7 +265,7 @@ class _BookCabScreenState extends State<BookCabScreen> {
                                       child: TextButton(
                                         onPressed: () {},
                                         child: const Text(
-                                          "Book only start trip",
+                                          "Book only end trip",
                                           style: TextStyle(
                                             color: Colors.grey,
                                             fontSize: 15,
@@ -279,7 +279,15 @@ class _BookCabScreenState extends State<BookCabScreen> {
                                       color: Colors.black,
                                       fontSize: 20.0,
                                       textColor: Colors.white,
-                                      onTap: () {},
+                                      onTap: () => {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const CabComingScreen(),
+                                          ),
+                                        ),
+                                      },
                                     ),
                                   ],
                                 ),
