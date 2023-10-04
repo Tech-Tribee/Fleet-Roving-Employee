@@ -2,6 +2,7 @@ import 'package:fleet_roving_employee/commons/colors.dart';
 import 'package:fleet_roving_employee/commons/contants/widgets/error_handling.dart';
 import 'package:fleet_roving_employee/commons/contants/widgets/utils.dart';
 import 'package:fleet_roving_employee/features/authentication/screens/login_screen.dart';
+import 'package:fleet_roving_employee/features/authentication/screens/mobile_otp_screen.dart';
 import 'package:fleet_roving_employee/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -41,7 +42,7 @@ class AuthService {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
+              builder: (context) => const OTPScreen(),
             ),
           );
 

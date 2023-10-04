@@ -1,4 +1,3 @@
-import 'package:fleet_roving_employee/commons/contants/widgets/reusable_button.dart';
 import 'package:flutter/material.dart';
 
 class CabComingScreen extends StatefulWidget {
@@ -155,7 +154,7 @@ class _CabComingScreenState extends State<CabComingScreen> {
                           const ClipOval(
                             child: Image(
                               image: NetworkImage(
-                                "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+                                "https://www.axestrack.com/wp-content/uploads/2021/07/truck-driver-giving-thumbs-up-during-coronavirus-pandemic-1-1-scaled.jpg",
                               ),
                               height: 120,
                               width: 120,

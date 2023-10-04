@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String uri = "http://10.201.99.59:3001";
+String uri = "http://192.168.39.251:3001";
 
 class GlobalVariable {
   static const splashScreenPrimaryColor = Color(0xff004AAD);
